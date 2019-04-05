@@ -12,9 +12,20 @@ The figure drawn illustrates the trajectory of each dimension of the true
 state, the estimated state using all measurements, and the estimated state
 using every fifth measurement.
 '''
+import pandas as pd
 import numpy as np
 import pylab as pl
 from pykalman import KalmanFilter
+
+vehicle = pd.read_csv("../data/attachment_1_100/AA00004.csv")
+# 将其中的四项转化为 narray
+# lng_lat_time_speed = vehicle[["lng","lat","location_time","gps_speed"]].values
+
+vehicle['location_time'] = pd.to_datetime(vehicle['location_time'])
+
+grouper = pd.Grouper(key='location_time', freq='10s')
+
+res = vehicle.groupby(grouper).first().reset_index()
 
 # specify parameters
 random_state = np.random.RandomState(0)
@@ -43,6 +54,7 @@ observations_missing = np.ma.array(
     observations_all,
     mask=np.zeros(observations_all.shape)
 )
+
 for t in range(n_timesteps):
     if t % 5 != 0:
         observations_missing[t] = np.ma.masked
