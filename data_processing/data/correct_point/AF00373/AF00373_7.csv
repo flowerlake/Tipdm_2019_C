@@ -1,0 +1,3 @@
+,location_time,Unnamed: 0,vehicleplatenumber,device_num,direction_angle,lng,lat,acc_state,right_turn_signals,left_turn_signals,hand_brake,foot_brake,gps_speed,mileage,time_diff
+0,2018-09-25 06:51:10,20597,AF00373,AAA7109373,150,116.43615843239584,27.862315508166656,1,0,0,0,0,61,16834,1.0
+1,2018-09-25 06:51:11,20598,AF00373,AAA7109373,150,116.43619156822525,27.86226249083958,1,0,0,0,0,57,16834,49551.0
