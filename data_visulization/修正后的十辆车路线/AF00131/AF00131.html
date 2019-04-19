@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>Style lines with a data-driven property</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script src='//d3js.org/d3.v4.min.js' charset='utf-8'></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VtbWVyb25lIiwiYSI6ImNqdG1zYnV1ZDF6NjU0NGxmeXk3aTlxeTIifQ.Bl298aYMAylfBduuZeEgtQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [115.92458300000001, 28.650915],
+        zoom: 16
+    });
+
+    var q = d3.queue();
+
+    // src= '/Users/summerone/Desktop/mapbox/result_file/AA00002/'
+    for (var i = 0; i < 36; ++i) {
+        q.defer(d3.json, 'AF00131_'+i+'.json');
+    }
+    q.await(draw);
+    // d3.queue()
+    //     .defer(d3.json, '2.json')
+    //     .defer(d3.json, '1.json')
+    //     .await(draw);
+
+    function draw(err, data1, data2, data3, data4, data5, data6, data7, data8, data9,data10,data11, data12, data13, data14, data15, data16, data17, data18, data19,data20,data21, data22, data23, data24, data25, data26, data27, data28, data29,data30,data31, data32, data33, data34, data35, data36) {
+        // d3.json('2.json', function (err, data) {
+        if (err) throw err;
+        // var coordinates1
+        let coordinates1 = data1.features[0].geometry.coordinates;
+        let coordinates2 = data2.features[0].geometry.coordinates;
+        let coordinates3 = data3.features[0].geometry.coordinates;
+        let coordinates4 = data4.features[0].geometry.coordinates;
+        let coordinates5 = data5.features[0].geometry.coordinates;
+        let coordinates6 = data6.features[0].geometry.coordinates;
+        let coordinates7 = data7.features[0].geometry.coordinates;
+        let coordinates8 = data8.features[0].geometry.coordinates;
+        let coordinates9 = data9.features[0].geometry.coordinates;
+        let coordinates10 = data10.features[0].geometry.coordinates;
+        let coordinates11 = data11.features[0].geometry.coordinates;
+        let coordinates12 = data12.features[0].geometry.coordinates;
+        let coordinates13 = data13.features[0].geometry.coordinates;
+        let coordinates14 = data14.features[0].geometry.coordinates;
+        let coordinates15 = data15.features[0].geometry.coordinates;
+        let coordinates16 = data16.features[0].geometry.coordinates;
+        let coordinates17 = data17.features[0].geometry.coordinates;
+        let coordinates18 = data18.features[0].geometry.coordinates;
+        let coordinates19 = data19.features[0].geometry.coordinates;
+        let coordinates20 = data20.features[0].geometry.coordinates;
+        let coordinates21 = data21.features[0].geometry.coordinates;
+        let coordinates22 = data22.features[0].geometry.coordinates;
+        let coordinates23 = data23.features[0].geometry.coordinates;
+        let coordinates24 = data24.features[0].geometry.coordinates;
+        let coordinates25 = data25.features[0].geometry.coordinates;
+        let coordinates26 = data26.features[0].geometry.coordinates;
+        let coordinates27 = data27.features[0].geometry.coordinates;
+        let coordinates28 = data28.features[0].geometry.coordinates;
+        let coordinates29 = data29.features[0].geometry.coordinates;
+        let coordinates30 = data30.features[0].geometry.coordinates;
+        let coordinates31 = data31.features[0].geometry.coordinates;
+        let coordinates32 = data32.features[0].geometry.coordinates;
+        let coordinates33 = data33.features[0].geometry.coordinates;
+        let coordinates34 = data34.features[0].geometry.coordinates;
+        let coordinates35 = data35.features[0].geometry.coordinates;
+        let coordinates36 = data36.features[0].geometry.coordinates;
+
+
+
+
+
+        map.on('load', function () {
+
+
+// save full coordinate list for later
+
+
+            console.log(coordinates1);
+            console.log(coordinates2);
+
+            map.addLayer({
+                'id': 'lines',
+                'type': 'line',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates1
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates2
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD'// red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates3
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates4
+                                }
+                            },
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates5
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates6
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates7
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates8
+                                }
+                            }
+                            , {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates9
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates10
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates11
+                                }
+                            },
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates12
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates13
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates14
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates15
+                                }
+                            }
+                            ,
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates16
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates17
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD'// red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates18
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates19
+                                }
+                            },
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates20
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates21
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates22
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates23
+                                }
+                            }
+                            , {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates24
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#F7455D' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates25
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates26
+                                }
+                            },
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates27
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates28
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates29
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates30
+                                }
+                            }
+                            ,
+
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates31
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates32
+                                }
+                            },
+
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD'// red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates33
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates34
+                                }
+                            },
+                            {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // red
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates':
+                                    coordinates35
+
+                                }
+                            }, {
+                                'type': 'Feature',
+                                'properties': {
+                                    'color': '#CD00CD' // blue
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates36
+                                }
+                            }
+                        ]
+                    }
+                },
+                'paint': {
+                    'line-width': 3,
+// Use a get expression (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-get)
+// to set the line-color to a feature property value.
+                    'line-color': ['get', 'color']
+                }
+            });
+        });
+
+    }
+
+    // )
+    ;
+</script>
+
+</body>
+</html>
