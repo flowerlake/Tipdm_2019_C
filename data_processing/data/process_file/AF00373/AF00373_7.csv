@@ -1,0 +1,3 @@
+,vehicleplatenumber,device_num,direction_angle,lng,lat,acc_state,right_turn_signals,left_turn_signals,hand_brake,foot_brake,location_time,gps_speed,mileage,time_diff
+20597,AF00373,AAA7109373,150,116.436135,27.862353,1,0,0,0,0,2018-09-25 06:51:10,61,16834,1.0
+20598,AF00373,AAA7109373,150,116.436215,27.862225,1,0,0,0,0,2018-09-25 06:51:11,57,16834,49551.0
